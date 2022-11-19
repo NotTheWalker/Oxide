@@ -34,3 +34,9 @@ bin/
 /src/.Rhistory
 /provincesEnriched.csv
 /localisation/
+/.provincemap_example.bmp.icloud
+/.Rhistory
+/definitions_example.csv
+/Oxide.Rproj
+/pixelFinderPID.txt
+/provinceCenters.csv
