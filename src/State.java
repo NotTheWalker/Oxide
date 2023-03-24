@@ -26,6 +26,7 @@ public class State {
     private HashMap<Integer, BuildingMap> provincialBuildings;
     //endregion
 
+    //region Regex patterns
     //TODO: Convert this to a standardized pattern
     private static final Pattern patID = Pattern.compile("/[\\n\\r].*id\\s*=\\s*([^\\s#\\n\\r]*)/");
     private static final Pattern patName = Pattern.compile("/[\\n\\r].*name\\s*=\\s*\"([^\\s#\\n\\r]*)\"/");
@@ -43,9 +44,14 @@ public class State {
     private static final Pattern patOil = Pattern.compile("/[\\n\\r].*oil\\s*=\\s*([^\\s#\\n\\r]*)/");
     private static final Pattern patLocalSupplies = Pattern.compile("/[\\n\\r].*local_supplies\\s*=\\s*([^\\s#\\n\\r]*)/");
     private static final Pattern patBuildingsMLF = Pattern.compile("/[\\n\\r].*buildings_max_level_factor\\s*=\\s*([^\\s#\\n\\r]*)/");
-    private static final Pattern pat = Pattern.compile("");
+
+    //TODO: Absolutely 100% needs testing due to multiple start dates
+    private static final Pattern patOwner = Pattern.compile("/[\\n\\r].*owner\\s*=\\s*([^\\s#\\n\\r]*)/");
+    private static final Pattern patController = Pattern.compile("/[\\n\\r].*controller\\s*=\\s*([^\\s#\\n\\r]*)/");
+    private static final Pattern patVictoryPoints = Pattern.compile("/[^#]victory_points\\s*=\\s*\\{\\s*([^}\\t]*)\\s/g");
 
     //private static final Pattern pat = Pattern.compile("");
+    //endregion
 
     public State(int id, String name, int manpower, StateCat stateCat, List<Province> provinceList) {
         this.id = id;

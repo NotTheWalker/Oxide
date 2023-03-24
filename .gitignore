@@ -28,15 +28,12 @@ bin/
 ### Mac OS ###
 .DS_Store
 .Rproj.user
-/statefiles_example/
-/pixelColourMap_test.csv
-/provincemap_example.bmp
 /src/.Rhistory
-/provincesEnriched.csv
 /localisation/
-/.provincemap_example.bmp.icloud
 /.Rhistory
-/definitions_example.csv
 /Oxide.Rproj
 /pixelFinderPID.txt
-/provinceCenters.csv
+/statefiles/
+/statefiles_clean/
+/statefiles_example/
+/input/
