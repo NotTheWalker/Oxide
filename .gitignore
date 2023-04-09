@@ -37,3 +37,13 @@ bin/
 /statefiles_clean/
 /statefiles_example/
 /input/
+/.idea/.rAvailablePackageCache.xml.icloud
+/.RData
+/common/buildings/00_buildings.txt
+/common/resources/00_resources.txt
+/common/terrain/00_terrain.txt
+/buildings_all.txt
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_19,_22_59_[Changes]/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_19,_23_03_[Changes]/shelved.patch
+/test.xlsx
