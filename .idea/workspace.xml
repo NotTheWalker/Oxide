@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Changes since initialisation">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rAvailablePackageCache.xml" beforeDir="false" />
+    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="All changes prior to forking project">
+      <change afterPath="$PROJECT_DIR$/src/BuildingType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RegexPattern.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StateCatType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pixel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Province.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StateCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StateCat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/oxideMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/oxideMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="R Script" />
+        <option value="Record" />
         <option value="Enum" />
         <option value="Class" />
       </list>
@@ -26,6 +35,11 @@
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -65,7 +79,7 @@
       <recent name="$PROJECT_DIR$/input" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.oxideMain">
     <configuration name="BitmapOverlay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BitmapOverlay" />
       <module name="Oxide" />
@@ -73,8 +87,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="oxideMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="oxideMain" />
+      <module name="Oxide" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.oxideMain" />
         <item itemvalue="Application.BitmapOverlay" />
       </list>
     </recent_temporary>
@@ -90,6 +112,11 @@
       <workItem from="1680621811830" duration="752000" />
       <workItem from="1680792275513" duration="777000" />
       <workItem from="1680855805568" duration="3647000" />
+      <workItem from="1680870194460" duration="6588000" />
+      <workItem from="1680879521987" duration="819000" />
+      <workItem from="1680880676106" duration="1681000" />
+      <workItem from="1680882928917" duration="4458000" />
+      <workItem from="1680949174309" duration="11790000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore">
       <created>1668891826373</created>
@@ -105,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679640734363</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="All changes prior to forking project">
+      <created>1680870257701</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680870257701</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +172,7 @@
     <MESSAGE value="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore" />
     <MESSAGE value="Initial project commit" />
     <MESSAGE value="Changes since initialisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes since initialisation" />
+    <MESSAGE value="All changes prior to forking project" />
+    <option name="LAST_COMMIT_MESSAGE" value="All changes prior to forking project" />
   </component>
 </project>

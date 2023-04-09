@@ -1,24 +1,21 @@
-public enum Resource {
-    //TODO: Expand to 00_resources.txt functionality, editing / adding custom resources
-    STEEL("steel"),
-    ALUMINIUM("aluminium"),
-    CHROMIUM("chromium"),
-    TUNGSTEN("tungsten"),
-    RUBBER("rubber"),
-    OIL("oil"),
-    CUSTOM1("custom1"),
-    CUSTOM2("custom2"),
-    CUSTOM3("custom3"),
-    CUSTOM4("custom4"),
-    CUSTOM5("custom5"),
-    CUSTOM6("custom6");
+public record Resource(String name, int iconframe_index, float cic, float convoys) {
 
-    private String name;
-    Resource(String name) {
-        this.name = name;
+    private static final String[] defaultResources = {"oil", "steel", "rubber", "chromium", "tungsten", "aluminium"};
+
+    public Resource defaultResource(String name, int iconframe_index) {
+        return new Resource(name, iconframe_index, (float) 0.125, (float) 0.1);
     }
 
-    public String getName() {
-        return name;
+    public String[] getDefaultResources() {
+        return defaultResources;
+    }
+
+    public Resource getDefaultResource(String name) {
+        for (int i = 0; i < defaultResources.length; i++) {
+            if (defaultResources[i].equals(name)) {
+                return defaultResource(name, i);
+            }
+        }
+        return null;
     }
 }

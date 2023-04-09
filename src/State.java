@@ -3,14 +3,19 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import static java.util.regex.Pattern.compile;
 
 public class State {
+
+    Logger logger = Logger.getLogger(StateCat.class.getName());
+    private static final String lBrace = "{";
+    private static final String rBrace = "}";
+
     //region Mandatory state data
     private final int id;
     private String name;
@@ -36,18 +41,17 @@ public class State {
 
     //region Regex patterns
     //TODO: Convert this to a standardized pattern
-    private static final Pattern patID = compile("/[\\n\\r].*id\\s*=\\s*([^\\s#\\n\\r]*)/");
-    private static final Pattern patName = compile("/[\\n\\r].*name\\s*=\\s*\"([^\\s#\\n\\r]*)\"/");
-    private static final Pattern patManpower = compile("/[\\n\\r].*manpower\\s*=\\s*([^\\s#\\n\\r]*)/");
-    private static final Pattern patStateCat = compile("/[\\n\\r].*state_category\\s*=\\s*([^\\s#\\n\\r]*)/");
-    private static final Pattern patProvinces = compile("/provinces\\s*=\\s*\\{\\s*([^}]*)\\t/m");
-
-    private static final Pattern patImpassable = compile("/[\\n\\r].*impassable\\s*=\\s*([^\\s#\\n\\r]*)/");
+    private final RegexPattern PAT_ID = new RegexPattern("(?<=id\\s=\\s)\\d+");
+    private final RegexPattern PAT_NAME = new RegexPattern("(?<=name\\s=\\s)([^\\s\\r]*)");
+    private final RegexPattern PAT_MANPOWER = new RegexPattern("(?<=manpower\\s=\\s)\\d+");
+    private final RegexPattern PAT_STATE_CATEGORY = new RegexPattern("(?<=state_category\\s=\\s)([^\\s\\r]*)");
+    private final RegexPattern PAT_PROVINCE_ABSTRACT = new RegexPattern("(?<=provinces\\s=\\s)\\{\\s*([^}]*)");
+    private final RegexPattern PAT_IMPASSABLE = new RegexPattern("/(?<=impassable\\s=\\s)([^\\s\\r]*)/");
     //TODO: should inherit from resource config (pane?) or file
-    private static final Pattern patSteel = compile("/[\\n\\r].*steel\\s*=\\s*([^\\s#\\n\\r]*)/");
-    private static final Pattern patAluminium = compile("/[\\n\\r].*aluminium\\s*=\\s*([^\\s#\\n\\r]*)/");
-    private static final Pattern patChromium = compile("/[\\n\\r].*chromium\\s*=\\s*([^\\s#\\n\\r]*)/");
-    private static final Pattern patTungsten = compile("/[\\n\\r].*tungsten\\s*=\\s*([^\\s#\\n\\r]*)/");
+    private final RegexPattern patSteel = new RegexPattern("/(?<=steel\\s=\\s)([^\\s\\r]*)/");
+    private final RegexPattern patAluminium = new RegexPattern("/(?<=aluminium\\s=\\s)([^\\s\\r]*)/");
+    private final RegexPattern patChromium = new RegexPattern("/(?<=chromium\\s=\\s)([^\\s\\r]*)/");
+    private final RegexPattern patTungsten = new RegexPattern("/(?<=tungsten\\s=\\s)([^\\s\\r]*)/");
     private static final Pattern patRubber = compile("/[\\n\\r].*rubber\\s*=\\s*([^\\s#\\n\\r]*)/");
     private static final Pattern patOil = compile("/[\\n\\r].*oil\\s*=\\s*([^\\s#\\n\\r]*)/");
     private static final Pattern patLocalSupplies = compile("/[\\n\\r].*local_supplies\\s*=\\s*([^\\s#\\n\\r]*)/");
@@ -76,40 +80,27 @@ public class State {
         this.manpower = manpower;
     }
 
-    public State state(String attributes) {
-        String[] attributesArr = attributes.split(",");
-        return new State(
-                Integer.parseInt(attributesArr[0]),
-                attributesArr[1],
-                StateCat.valueOf(attributesArr[2]),
-                Integer.parseInt(attributesArr[3])
-                );
-
+    private String cleanText(String text) {
+        text = text.replaceAll("\\t", " ");
+        text = text.replaceAll(rBrace, " "+rBrace+" ");
+        text = text.replaceAll(lBrace, " "+lBrace+" ");
+        text = text.replaceAll("=", " = ");
+        return text.trim().replaceAll("\\s+", " ");
     }
 
-    private State[] statesFromFile(String filePath) {
+    private String fileToText(String filePath) {
         Path pathToFile = Paths.get(filePath);
-        State[] states;
-        List<State> stateList = new ArrayList<>();
+        StringBuilder text = new StringBuilder();
         try(BufferedReader br = Files.newBufferedReader(pathToFile)) {
             String line = br.readLine();
             while (line!=null) {
-                State stateFromLine = state(line);
-                stateList.add(stateFromLine);
+                text.append(line);
                 line=br.readLine();
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
-        states = (State[]) stateList.toArray();
-        return null;
-    }
-
-    private State[] appendStateArray(State[] states, State state) {
-        State[] states1 = new State[states.length+1];
-        System.arraycopy(states, 0, states1, 0, states.length);
-        states1[states.length] = state;
-        return states1;
+        return text.toString();
     }
 
 }
