@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="All changes prior to forking project">
-      <change afterPath="$PROJECT_DIR$/src/BuildingType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RegexPattern.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StateCatType.java" afterDir="false" />
+    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Updated gitignore for untracked files">
+      <change afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ValueInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Province.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StateCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StateCat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/oxideMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/oxideMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +40,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Gzj5Uv3KPtaP3tDmrcEKuauCXN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -54,26 +48,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last.edited.regexp&quot;: &quot;Sample Text&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/calebmorse/Documents/Projects/myLib/Oxide&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.40344828&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;/Users/calebmorse/Documents/D&amp;D/Eberron Ascendent/modding_support/Oxide/statefiles/360-Pennsylvania.txt&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last.edited.regexp": "hello {",
+    "last_opened_file_path": "/Users/calebmorse/Documents/Projects/myLib/Oxide",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.40344828",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "two.files.diff.last.used.file": "/Users/calebmorse/Documents/D&D/Eberron Ascendent/modding_support/Oxide/statefiles/360-Pennsylvania.txt",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/input" />
@@ -116,7 +110,9 @@
       <workItem from="1680879521987" duration="819000" />
       <workItem from="1680880676106" duration="1681000" />
       <workItem from="1680882928917" duration="4458000" />
-      <workItem from="1680949174309" duration="11790000" />
+      <workItem from="1680949174309" duration="24252000" />
+      <workItem from="1681150028644" duration="4441000" />
+      <workItem from="1681211425737" duration="23349000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore">
       <created>1668891826373</created>
@@ -139,7 +135,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680870257701</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First commit of new design approach, moving away from enums and finally incorporating file parsing logic that will allow custom feature support (day0 feature).&#10;ReadME still to come">
+      <created>1681076944462</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681076944462</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updated gitignore for untracked files">
+      <created>1681077422175</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681077422175</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +183,8 @@
     <MESSAGE value="Initial project commit" />
     <MESSAGE value="Changes since initialisation" />
     <MESSAGE value="All changes prior to forking project" />
-    <option name="LAST_COMMIT_MESSAGE" value="All changes prior to forking project" />
+    <MESSAGE value="First commit of new design approach, moving away from enums and finally incorporating file parsing logic that will allow custom feature support (day0 feature).&#10;ReadME still to come" />
+    <MESSAGE value="Updated gitignore for untracked files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated gitignore for untracked files" />
   </component>
 </project>

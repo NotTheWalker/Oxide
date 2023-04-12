@@ -8,6 +8,9 @@ public class oxideMain {
         //which then handles the rest of the program
         //oxideMain also handles settings, configurations, presets, and preferences
         boolean isRunning = true;
+//        Parser parser = new Parser("common/buildings/00_buildings.txt");
+//        Map<String, ValueInstance> map = parser.getParsedData();
+//        System.out.println(map);
         String[] options = {"New", "Existing"};
         int newOrExisting = JOptionPane.showOptionDialog(
                 null,
