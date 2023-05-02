@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface.">
+      <change afterPath="$PROJECT_DIR$/src/XmlWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ValueNodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ValueNodes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ValueInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ValueNodes.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/oxideMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/oxideMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +30,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Caleb Morse &lt;caleb.gemorse@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -33,6 +42,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,6 +79,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameFiles" />
       <recent name="$PROJECT_DIR$/input" />
     </key>
   </component>
@@ -116,7 +127,11 @@
       <workItem from="1681711297001" duration="19000" />
       <workItem from="1681800589517" duration="2268000" />
       <workItem from="1681817916607" duration="196000" />
-      <workItem from="1681818179689" duration="534000" />
+      <workItem from="1681818179689" duration="2545000" />
+      <workItem from="1682335114052" duration="11974000" />
+      <workItem from="1682361045433" duration="7000" />
+      <workItem from="1683031757780" duration="8886000" />
+      <workItem from="1683056078780" duration="2133000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore">
       <created>1668891826373</created>
@@ -167,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681817487002</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface.">
+      <created>1681818772093</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681818772093</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +222,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore" />
     <MESSAGE value="Initial project commit" />
     <MESSAGE value="Changes since initialisation" />
@@ -207,6 +231,7 @@
     <MESSAGE value="First commit of new design approach, moving away from enums and finally incorporating file parsing logic that will allow custom feature support (day0 feature).&#10;ReadME still to come" />
     <MESSAGE value="Updated gitignore for untracked files" />
     <MESSAGE value="Majority of session.java's functionality has been removed, signalling a design shift away from regex heavy parsing to a new token-based parsing system, which consists of the new Token, ValueInstance, and Parser classes.&#10;&#10;Session.java will eventually be expanded upon to include formatting of text files to be parsed, as some will still not play-nice with the new system." />
+    <MESSAGE value="fixup! Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
     <MESSAGE value="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
     <option name="LAST_COMMIT_MESSAGE" value="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
   </component>
@@ -215,9 +240,48 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/oxideMain.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
+          <line>16</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Parser.java</url>
+          <line>254</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oxideMain.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Parser.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Parser.java</url>
+          <line>233</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Parser.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Parser.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Parser.java</url>
+          <line>140</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.w3c.dom.DOMException" package="org.w3c.dom" />
+          <option name="timeStamp" value="15" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
