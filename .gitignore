@@ -47,3 +47,5 @@ bin/
 /.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_19,_22_59_[Changes]/shelved.patch
 /.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_19,_23_03_[Changes]/shelved.patch
 /test.xlsx
+/gameFiles/
+/src/resources/gameFiles/
