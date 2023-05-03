@@ -24,7 +24,8 @@ public class XmlWriter {
     }
 
     private void createAndPushElement(String elementName) {
-        Element element = document.createElement(elementName);
+        String escapedElementName = escapeKey(elementName);
+        Element element = document.createElement(escapedElementName);
         if (elementStack.empty()) {
             document.appendChild(element);
         } else {
@@ -34,6 +35,25 @@ public class XmlWriter {
     }
 
     private void setAttribute(String key, String value) {
-        elementStack.peek().setAttribute(key, value);
+        String escapedKey = escapeKey(key);
+        String escapedValue = removeQuotes(value);
+        elementStack.peek().setAttribute(escapedKey, escapedValue);
     }
+
+    public static String escapeKey(String key) {
+        // Prepend an underscore if the key starts with a number
+        if (Character.isDigit(key.charAt(0))) {
+            key = "_" + key;
+        }
+
+        // Replace special characters with underscores
+        key = key.replaceAll("[^a-zA-Z0-9_\\-]", "_");
+        //TODO: make inverse function for xml reader?
+        return key;
+    }
+
+    public static String removeQuotes(String value) {
+        return value.replaceAll("\"", "");
+    }
+
 }

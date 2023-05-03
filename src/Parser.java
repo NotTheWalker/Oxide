@@ -4,10 +4,7 @@ import org.w3c.dom.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.BufferedReader;
@@ -43,12 +40,24 @@ public class Parser {
             }
             dirName = "src/resources/"+matcher.group(1);
             filename = matcher.group(2)+".xml";
-            logger.info("filename: " + filename);
+            logger.info(
+                "\n" + "=".repeat(50) +
+                "\n \t\t filename: " + filename +
+                "\n" + "=".repeat(50)
+            );
         }
         this.outputFileString = filename;
-        this.parsedData = parseToDict();
-        this.dataString = parsedData.toString();
-        saveDocumentToXML(dirName);
+        String data = fileToText(inputFileString);
+        data = cleanText(data);
+        List<Token> tokens = tokenize(data);
+        XmlWriter xmlWriter = new XmlWriter();
+        try {
+            this.parsedData = xmlWriter.convertToXml(tokens.toArray(new Token[0]));
+            this.dataString = parsedData.toString();
+            saveDocumentToXML(parsedData, dirName, outputFileString);
+        } catch (ParserConfigurationException | TransformerException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getInputFileString() {
@@ -61,13 +70,6 @@ public class Parser {
 
     public String getDataString() {
         return dataString;
-    }
-
-    private Document parseToDict() {
-        String data = fileToText(inputFileString);
-        data = cleanText(data);
-        List<Token> tokens = tokenize(data);
-        return parseTokens(tokens);
     }
 
     private static String fileToText(String filePath) {
@@ -101,7 +103,7 @@ public class Parser {
         List<Token> tokens = new ArrayList<>();
         String[] parts = text.split("\\s+");
         for (int i = 0; i < parts.length; i++) {
-            logger.info(parts[i]);
+//            logger.info(parts[i]);
             switch (parts[i]) {
                 case "{" -> {
                     Token token = new Token(Token.Type.LEFT_BRACE, null, null);
@@ -181,82 +183,28 @@ public class Parser {
         return -1;
     }
 
-    private void appendChildrenRecursively(Document document, Element parent, Token[] tokens, int startIndex, int endIndex) {
-        //begins with starting index at 0, but can be recursively called with a different starting index
-        for (int i = startIndex; i < endIndex; i++) {
-            Token token = tokens[i]; //token is the current token being processed
-            if (token.type() == Token.Type.KEY_VALUE_PAIR) {
-                //if the token is a key value pair, add it as an attribute to the parent element
-                parent.setAttribute(token.key(), token.value());
-            } else if (token.type() == Token.Type.LEFT_BRACE) {
-                int rightBraceIndex = nextRightBrace(tokens, i);
-                if (rightBraceIndex == -1) {
-                    logger.warning("no matching right brace found for left brace at index " + i);
-                    continue;
-                }
-                //if the token is a left brace...
-                if(tokens[i+1].type() == Token.Type.VALUE_SERIES) {
-                    // and if the next token is a value series, add it as an attribute to the parent element
-                    parent.setAttribute(token.key(), tokens[i+1].value());
-                    i++; //increment i to skip the value series token
-                    continue;
-                }
-                logger.info(token.toString());
-                Element child = document.createElement(token.key());
-                //otherwise, create a new element with the key of the left brace token...
-                parent.appendChild(child);
-                // and add it as a child to the parent element
-                appendChildrenRecursively(document, child, tokens, i + 1, rightBraceIndex);
-                //then recursively call this method with the new element as the parent,
-                // the next token as the start index,
-                // and the right brace index as the end index
-                i = rightBraceIndex-1; //set i to the right brace index to skip the children of the new element
+    public void saveDocumentToXML(Document parsedData, String outputDirectory, String outputFileString) throws TransformerException {
+        // Create the output file object
+        File outputFile = new File(outputDirectory, outputFileString);
+        if(!outputFile.exists()) {
+            try {
+                outputFile.mkdirs();
+            } catch (SecurityException e) {
+                logger.warning("could not write " + outputFileString + " due to security exception!");
             }
-            //do nothing if the token is a right brace as xml handles its own closing tags
         }
+
+        // Configure the transformer to output the XML in a readable format
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+        // Create the result object to write the XML to the output file
+        StreamResult result = new StreamResult(outputFile);
+
+        // Transform the parsedData document to XML and write it to the output file
+        transformer.transform(new DOMSource(parsedData), result);
     }
 
-    private Document parseTokens(List<Token> tokens) {
-        Token[] tokenArray = tokens.toArray(new Token[0]);
-        try {
-            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            Document document = documentBuilder.newDocument();
-
-            if(tokenArray[0].type()!= Token.Type.LEFT_BRACE) {
-                logger.warning("first token is not a left brace");
-            }
-            String rootTagName = tokenArray[0].key();
-            Element root = document.createElement(rootTagName);
-            document.appendChild(root);
-            int endIndex = nextRightBrace(tokenArray, 0);
-            appendChildrenRecursively(document, root, tokenArray, 1, endIndex);
-            return document;
-        } catch (ParserConfigurationException e) {
-            logger.severe("parser configuration exception:\n" + e.getMessage());
-            e.printStackTrace();
-        }
-        logger.warning("returning null document");
-        return null;
-    }
-
-    private void saveDocumentToXML(String outputDirectoryString) {
-        try {
-            File outputDirectory = new File(outputDirectoryString);
-            if(!outputDirectory.exists()) {
-                outputDirectory.mkdirs();
-            }
-            File outputFile = new File(outputDirectoryString + "/" + outputFileString);
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty("indent", "yes");
-            DOMSource domSource = new DOMSource(parsedData);
-            StreamResult streamResult = new StreamResult(outputFile);
-            transformer.transform(domSource, streamResult);
-        } catch (TransformerConfigurationException e) {
-            logger.warning("TransformerConfigurationException: " + e.getMessage());
-        } catch (TransformerException e) {
-            logger.warning("TransformerException: " + e.getMessage());
-        }
-    }
 }

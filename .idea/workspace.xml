@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface.">
-      <change afterPath="$PROJECT_DIR$/src/XmlWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Updated gitignore to exclude game files (vital)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ValueInstance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ValueNodes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XmlWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XmlWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/oxideMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/oxideMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +34,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="rewrite" />
+        <entry key="$PROJECT_DIR$" value="node_implementation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -131,7 +127,7 @@
       <workItem from="1682335114052" duration="11974000" />
       <workItem from="1682361045433" duration="7000" />
       <workItem from="1683031757780" duration="8886000" />
-      <workItem from="1683056078780" duration="2133000" />
+      <workItem from="1683056078780" duration="8587000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore">
       <created>1668891826373</created>
@@ -189,7 +185,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681818772093</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="All work before attempting a refactor using chatGPT's suggested XmlWriter.java implementation.">
+      <created>1683058571440</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683058571440</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Updated gitignore to exclude game files (vital)">
+      <created>1683058746830</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683058746830</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +243,9 @@
     <MESSAGE value="Majority of session.java's functionality has been removed, signalling a design shift away from regex heavy parsing to a new token-based parsing system, which consists of the new Token, ValueInstance, and Parser classes.&#10;&#10;Session.java will eventually be expanded upon to include formatting of text files to be parsed, as some will still not play-nice with the new system." />
     <MESSAGE value="fixup! Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
     <MESSAGE value="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
+    <MESSAGE value="All work before attempting a refactor using chatGPT's suggested XmlWriter.java implementation." />
+    <MESSAGE value="Updated gitignore to exclude game files (vital)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated gitignore to exclude game files (vital)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -242,41 +254,6 @@
           <url>file://$PROJECT_DIR$/src/oxideMain.java</url>
           <line>16</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Parser.java</url>
-          <line>254</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/oxideMain.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Parser.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Parser.java</url>
-          <line>233</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Parser.java</url>
-          <line>208</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Parser.java</url>
-          <line>230</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Parser.java</url>
-          <line>140</line>
-          <option name="timeStamp" value="33" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.w3c.dom.DOMException" package="org.w3c.dom" />
