@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Updated gitignore to exclude game files (vital)">
+    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Refactored token parsing to new XmlWriter.java script; greatly improved readability. Added formatting to avoid xml format errors. Corrected document to xml process, with additional directory handling. Removed Parser.parseToDict function; identified as unnecessary wrapper function.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oxide.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Oxide.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XmlWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XmlWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/oxideMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/oxideMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +68,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.40344828&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;/Users/calebmorse/Documents/D&amp;D/Eberron Ascendent/modding_support/Oxide/statefiles/360-Pennsylvania.txt&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -93,6 +93,42 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
@@ -128,6 +164,11 @@
       <workItem from="1682361045433" duration="7000" />
       <workItem from="1683031757780" duration="8886000" />
       <workItem from="1683056078780" duration="8587000" />
+      <workItem from="1683101693401" duration="10834000" />
+      <workItem from="1683131633676" duration="598000" />
+      <workItem from="1683137899708" duration="1230000" />
+      <workItem from="1683180537187" duration="665000" />
+      <workItem from="1683479335520" duration="1219000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore">
       <created>1668891826373</created>
@@ -199,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683058746830</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Refactored token parsing to new XmlWriter.java script; greatly improved readability. Added formatting to avoid xml format errors. Corrected document to xml process, with additional directory handling. Removed Parser.parseToDict function; identified as unnecessary wrapper function.">
+      <created>1683102702248</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683102702248</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +293,8 @@
     <MESSAGE value="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
     <MESSAGE value="All work before attempting a refactor using chatGPT's suggested XmlWriter.java implementation." />
     <MESSAGE value="Updated gitignore to exclude game files (vital)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated gitignore to exclude game files (vital)" />
+    <MESSAGE value="Refactored token parsing to new XmlWriter.java script; greatly improved readability. Added formatting to avoid xml format errors. Corrected document to xml process, with additional directory handling. Removed Parser.parseToDict function; identified as unnecessary wrapper function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored token parsing to new XmlWriter.java script; greatly improved readability. Added formatting to avoid xml format errors. Corrected document to xml process, with additional directory handling. Removed Parser.parseToDict function; identified as unnecessary wrapper function." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -254,6 +303,16 @@
           <url>file://$PROJECT_DIR$/src/oxideMain.java</url>
           <line>16</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Parser.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oxideMain.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.w3c.dom.DOMException" package="org.w3c.dom" />

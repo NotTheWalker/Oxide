@@ -30,7 +30,7 @@ public class oxideMain {
     }
 
     public static void testAllStatesToXML() {
-        File[] fileList = new File("gameFiles/history/states").listFiles();
+        File[] fileList = new File("gameFiles/history/countries/").listFiles();
         assert fileList != null;
         for (File file : fileList) {
             if (file.isFile()) {

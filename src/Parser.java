@@ -79,6 +79,7 @@ public class Parser {
             String line = br.readLine();
             while (line!=null) {
                 text.append(removeComments(line));
+                text.append(' ');
                 line=br.readLine();
             }
         } catch (IOException ioe) {
@@ -106,7 +107,7 @@ public class Parser {
 //            logger.info(parts[i]);
             switch (parts[i]) {
                 case "{" -> {
-                    Token token = new Token(Token.Type.LEFT_BRACE, null, null);
+                    Token token = new Token(Token.Type.LEFT_BRACE, "NO_HEADER", null);
                     tokens.add(token);
                     logger.warning("unexpected left brace found without matching key");
                 }
@@ -140,6 +141,8 @@ public class Parser {
                 }
             }
         }
+        tokens.add(0, new Token(Token.Type.LEFT_BRACE, "ROOT", null));
+        tokens.add(new Token(Token.Type.RIGHT_BRACE, null, null));
         return tokens;
     }
 
@@ -183,17 +186,17 @@ public class Parser {
         return -1;
     }
 
-    public void saveDocumentToXML(Document parsedData, String outputDirectory, String outputFileString) throws TransformerException {
+    public void saveDocumentToXML(Document parsedData, String outputDirectoryString, String outputFileString) throws TransformerException {
         // Create the output file object
-        File outputFile = new File(outputDirectory, outputFileString);
-        if(!outputFile.exists()) {
+        File outputDirectory = new File(outputDirectoryString);
+        if(!outputDirectory.exists()) {
             try {
-                outputFile.mkdirs();
+                outputDirectory.mkdirs();
             } catch (SecurityException e) {
                 logger.warning("could not write " + outputFileString + " due to security exception!");
             }
         }
-
+        File outputFile = new File(outputDirectoryString, outputFileString);
         // Configure the transformer to output the XML in a readable format
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
