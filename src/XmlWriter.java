@@ -6,6 +6,8 @@ public class XmlWriter {
     private Stack<Element> elementStack = new Stack<>();
     private Document document;
 
+    private final HashMap<String, String> escapedKeys = new HashMap<>();
+
     public Document convertToXml(Token[] tokens) throws ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -36,6 +38,9 @@ public class XmlWriter {
 
     private void setAttribute(String key, String value) {
         String escapedKey = escapeKey(key);
+        if(!(escapedKey.equals(key))) {
+            escapedKeys.put(key, escapedKey);
+        }
         String escapedValue = removeQuotes(value);
         elementStack.peek().setAttribute(escapedKey, escapedValue);
     }
@@ -56,4 +61,7 @@ public class XmlWriter {
         return value.replaceAll("\"", "");
     }
 
+    public HashMap<String, String> getEscapedKeys() {
+        return escapedKeys;
+    }
 }

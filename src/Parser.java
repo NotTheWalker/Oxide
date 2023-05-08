@@ -29,6 +29,8 @@ public class Parser {
     private final Document parsedData;
     private final String dataString;
 
+    static final HashMap<String, String> escapedKeys = new HashMap<>();
+
     public Parser(File inputFile) {
         this.inputFileString = inputFile.getPath();
         Matcher matcher = pattern.matcher(inputFileString);
@@ -53,6 +55,7 @@ public class Parser {
         XmlWriter xmlWriter = new XmlWriter();
         try {
             this.parsedData = xmlWriter.convertToXml(tokens.toArray(new Token[0]));
+            addChangedKeys(xmlWriter.getEscapedKeys());
             this.dataString = parsedData.toString();
             saveDocumentToXML(parsedData, dirName, outputFileString);
         } catch (ParserConfigurationException | TransformerException e) {
@@ -208,6 +211,13 @@ public class Parser {
 
         // Transform the parsedData document to XML and write it to the output file
         transformer.transform(new DOMSource(parsedData), result);
+    }
+
+    private void addChangedKeys(HashMap<String, String> changedKeys) {
+        //adds the changed keys to the changedKeys HashMap
+        for (String key : changedKeys.keySet()) {
+            escapedKeys.putIfAbsent(key, changedKeys.get(key));
+        }
     }
 
 }
