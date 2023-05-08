@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Updated gitignore for untracked files">
-      <change afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ValueInstance.java" afterDir="false" />
+    <list default="true" id="91358625-2b5e-4878-933b-50b7ab96339c" name="Changes" comment="Refactored token parsing to new XmlWriter.java script; greatly improved readability. Added formatting to avoid xml format errors. Corrected document to xml process, with additional directory handling. Removed Parser.parseToDict function; identified as unnecessary wrapper function.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oxide.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Oxide.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/oxideMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/oxideMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,13 +26,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Caleb Morse &lt;caleb.gemorse@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="node_implementation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -48,28 +52,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last.edited.regexp": "hello {",
-    "last_opened_file_path": "/Users/calebmorse/Documents/Projects/myLib/Oxide",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.40344828",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "two.files.diff.last.used.file": "/Users/calebmorse/Documents/D&D/Eberron Ascendent/modding_support/Oxide/statefiles/360-Pennsylvania.txt",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last.edited.regexp&quot;: &quot;hello {&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/calebmorse/Documents/Projects/myLib/Oxide&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40344828&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;/Users/calebmorse/Documents/D&amp;D/Eberron Ascendent/modding_support/Oxide/statefiles/360-Pennsylvania.txt&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameFiles" />
       <recent name="$PROJECT_DIR$/input" />
     </key>
   </component>
@@ -87,6 +93,42 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
@@ -112,7 +154,21 @@
       <workItem from="1680882928917" duration="4458000" />
       <workItem from="1680949174309" duration="24252000" />
       <workItem from="1681150028644" duration="4441000" />
-      <workItem from="1681211425737" duration="23349000" />
+      <workItem from="1681211425737" duration="24648000" />
+      <workItem from="1681478331946" duration="2784000" />
+      <workItem from="1681711297001" duration="19000" />
+      <workItem from="1681800589517" duration="2268000" />
+      <workItem from="1681817916607" duration="196000" />
+      <workItem from="1681818179689" duration="2545000" />
+      <workItem from="1682335114052" duration="11974000" />
+      <workItem from="1682361045433" duration="7000" />
+      <workItem from="1683031757780" duration="8886000" />
+      <workItem from="1683056078780" duration="8587000" />
+      <workItem from="1683101693401" duration="10834000" />
+      <workItem from="1683131633676" duration="598000" />
+      <workItem from="1683137899708" duration="1230000" />
+      <workItem from="1683180537187" duration="665000" />
+      <workItem from="1683479335520" duration="1219000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore">
       <created>1668891826373</created>
@@ -149,42 +205,120 @@
       <option name="project" value="LOCAL" />
       <updated>1681077422175</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Majority of session.java's functionality has been removed, signalling a design shift away from regex heavy parsing to a new token-based parsing system, which consists of the new Token, ValueInstance, and Parser classes.&#10;&#10;Session.java will eventually be expanded upon to include formatting of text files to be parsed, as some will still not play-nice with the new system.">
+      <created>1681336043127</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681336043127</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface.">
+      <created>1681817487002</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681817487002</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface.">
+      <created>1681818772093</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681818772093</updated>
+    </task>
+    <task id="LOCAL-00009" summary="All work before attempting a refactor using chatGPT's suggested XmlWriter.java implementation.">
+      <created>1683058571440</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683058571440</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Updated gitignore to exclude game files (vital)">
+      <created>1683058746830</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683058746830</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Refactored token parsing to new XmlWriter.java script; greatly improved readability. Added formatting to avoid xml format errors. Corrected document to xml process, with additional directory handling. Removed Parser.parseToDict function; identified as unnecessary wrapper function.">
+      <created>1683102702248</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683102702248</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial project commit&#10;&#10;Basic hard coded file reading&#10;Basic hard coded resource, terrain, state types&#10;R script handling of pixel mapping&#10;PID watching for R script execution&#10;Unfinished Regex patterns for state .txt file reading&#10;+addition to gitIgnore" />
     <MESSAGE value="Initial project commit" />
     <MESSAGE value="Changes since initialisation" />
     <MESSAGE value="All changes prior to forking project" />
     <MESSAGE value="First commit of new design approach, moving away from enums and finally incorporating file parsing logic that will allow custom feature support (day0 feature).&#10;ReadME still to come" />
     <MESSAGE value="Updated gitignore for untracked files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated gitignore for untracked files" />
+    <MESSAGE value="Majority of session.java's functionality has been removed, signalling a design shift away from regex heavy parsing to a new token-based parsing system, which consists of the new Token, ValueInstance, and Parser classes.&#10;&#10;Session.java will eventually be expanded upon to include formatting of text files to be parsed, as some will still not play-nice with the new system." />
+    <MESSAGE value="fixup! Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
+    <MESSAGE value="Refactoring the ValueInstance method with an actual node and linked list implementation. Starting with just the default method implementation stubs required from implementing the Node interface." />
+    <MESSAGE value="All work before attempting a refactor using chatGPT's suggested XmlWriter.java implementation." />
+    <MESSAGE value="Updated gitignore to exclude game files (vital)" />
+    <MESSAGE value="Refactored token parsing to new XmlWriter.java script; greatly improved readability. Added formatting to avoid xml format errors. Corrected document to xml process, with additional directory handling. Removed Parser.parseToDict function; identified as unnecessary wrapper function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored token parsing to new XmlWriter.java script; greatly improved readability. Added formatting to avoid xml format errors. Corrected document to xml process, with additional directory handling. Removed Parser.parseToDict function; identified as unnecessary wrapper function." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oxideMain.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Parser.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oxideMain.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.w3c.dom.DOMException" package="org.w3c.dom" />
+          <option name="timeStamp" value="15" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
